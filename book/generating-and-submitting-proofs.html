@@ -170,29 +170,7 @@
 <p>This guide walks you through how to generate a proof from a web request and submit it to the Cowboy devnet. It also describes what happens under the hood and how your own programs (integrations) can be proved onchain.</p>
 <hr />
 <h2 id="overview-of-the-proof-flow"><a class="header" href="#overview-of-the-proof-flow">Overview of the Proof Flow</a></h2>
-<pre><code class="language-mermaid">sequenceDiagram
-    participant Prover
-    participant Browser
-    participant Notary
-    participant Node
-
-    Browser-&gt;&gt;Browser: Web request to prove is selected
-    Browser-&gt;&gt;Notary: Send web request to Notary
-    Notary-&gt;&gt;Notary: Generate TLS Notary proof
-    Notary--&gt;&gt;Browser: Return TLS proof
-    Browser-&gt;&gt;Browser: Check for registered integration
-
-    alt Integration exists
-        Browser-&gt;&gt;Prover: Send core + app request
-        Prover-&gt;&gt;Prover: Generate core + app proof
-    else No integration
-        Browser-&gt;&gt;Prover: Send core request only
-        Prover-&gt;&gt;Prover: Generate core proof
-    end
-
-    Prover--&gt;&gt;Node: Submit proof to devnet
-    Node-&gt;&gt;Node: Verify proof and emit public outputs
-</code></pre>
+<p><img src="./wMOef6uzHX9T.png" alt="My Test Image" /></p>
 <hr />
 <h2 id="-what-you-need"><a class="header" href="#-what-you-need">🔧 What You Need</a></h2>
 <p>To generate and submit a proof, you’ll need:</p>

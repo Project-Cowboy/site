@@ -246,6 +246,8 @@ After capturing the TLS Notary proof, click the On-chain tab in the extension to
 <li>Upload your integration to the chain and start verifying onchain.</li>
 </ul>
 <p>Check out the Developer Examples for structure, utilities, and inspiration.</p>
+<h2 id="repo"><a class="header" href="#repo">Repo</a></h2>
+<p>Check out the Repo <a href="https://github.com/Project-Cowboy/example-integrations">here</a></p>
 <h2 id="-learn-more"><a class="header" href="#-learn-more">🧠 Learn More</a></h2>
 <ul>
 <li><a href="./introduction.html">Introduction</a>: What Cowboy is and why it matters.</li>
@@ -256,29 +258,7 @@ After capturing the TLS Notary proof, click the On-chain tab in the extension to
 <p>This guide walks you through how to generate a proof from a web request and submit it to the Cowboy devnet. It also describes what happens under the hood and how your own programs (integrations) can be proved onchain.</p>
 <hr />
 <h2 id="overview-of-the-proof-flow"><a class="header" href="#overview-of-the-proof-flow">Overview of the Proof Flow</a></h2>
-<pre><code class="language-mermaid">sequenceDiagram
-    participant Prover
-    participant Browser
-    participant Notary
-    participant Node
-
-    Browser-&gt;&gt;Browser: Web request to prove is selected
-    Browser-&gt;&gt;Notary: Send web request to Notary
-    Notary-&gt;&gt;Notary: Generate TLS Notary proof
-    Notary--&gt;&gt;Browser: Return TLS proof
-    Browser-&gt;&gt;Browser: Check for registered integration
-
-    alt Integration exists
-        Browser-&gt;&gt;Prover: Send core + app request
-        Prover-&gt;&gt;Prover: Generate core + app proof
-    else No integration
-        Browser-&gt;&gt;Prover: Send core request only
-        Prover-&gt;&gt;Prover: Generate core proof
-    end
-
-    Prover--&gt;&gt;Node: Submit proof to devnet
-    Node-&gt;&gt;Node: Verify proof and emit public outputs
-</code></pre>
+<p><img src="./wMOef6uzHX9T.png" alt="My Test Image" /></p>
 <hr />
 <h2 id="-what-you-need"><a class="header" href="#-what-you-need">🔧 What You Need</a></h2>
 <p>To generate and submit a proof, you’ll need:</p>
@@ -394,7 +374,7 @@ This generates zk-STARK proofs using RISC Zero.</p>
 <h2 id="-integration-structure"><a class="header" href="#-integration-structure">🏗️ Integration Structure</a></h2>
 <p>Each integration includes the following key components:</p>
 <ul>
-<li><strong>A web target</strong> — An endpoint or page on the internet (e.g., <code>https://pokeapi.co/api/v2/pokemon/jigglypuff</code>) whose response will be proven.</li>
+<li><strong>A web target</strong> — An endpoint or page on the internet (e.g., <code>https://pokeapi.co/api/v2/pokemon/jigglypuff</code>) whose request/response will be proven.</li>
 <li><strong>An application-specific program</strong> — A zk-STARK circuit written in Rust that verifies the TLSNotary proof (core proof) and checks custom conditions about the fetched data (e.g., checking follower count, extracting specific fields).</li>
 <li><strong>Public outputs</strong> — Optional values emitted by the program after verification, used on-chain or by other integration proofs.</li>
 </ul>
@@ -426,7 +406,6 @@ Each integration expects a TLSNotary proof aligned to a specific URL — for exa
 <li><a href="./x.com.html">X.com Proof</a></li>
 </ul>
 <p>If you're ready to build your own, head over to <a href="./getting-started.html">Getting Started</a> and <a href="./resources.html">Resources</a> to set up your environment.</p>
-<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="xcom-proof"><a class="header" href="#xcom-proof">X.com Proof</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="resources"><a class="header" href="#resources">Resources</a></h1>
 <h2 id="cowboy-tlsn-extension-fork"><a class="header" href="#cowboy-tlsn-extension-fork">Cowboy TLSN Extension Fork</a></h2>
 <p>To get the browser extension on a Chrome-based browser</p>
