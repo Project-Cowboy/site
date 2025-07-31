@@ -192,13 +192,14 @@ This generates zk-STARK proofs using RISC Zero.</p>
 <li>Follow instructions in the <a href="./resources.html">Resources guide</a> to install and enable the extension in Chrome or Brave.</li>
 <li>Click the icon for the extension.</li>
 <li>Click the hamburger icon in the top-right corner &gt; "Options"</li>
-<li>Under Notary API, enter: "https://restricted-manga-workstation-stevens.trycloudflare.com"</li>
+<li>Under Notary API, enter: "https://juvenile-surface-corps-securities.trycloudflare.com"</li>
 </ol>
 <p>This tells your browser how to contact Cowboy's hosted notary server. ⚠️ In general, make sure you're using a trusted notary server.</p>
 <h3 id="2-run-the-local-prover"><a class="header" href="#2-run-the-local-prover">2. Run the Local Prover</a></h3>
-<p>You must run the prover container locally:</p>
-<pre><code class="language-bash">docker run -p 1881:1881 --platform linux/amd64 ghcr.io/project-cowboy/cowboy-prover:latest
+<p>You must run the prover container locally. If running on MacOS(arm64), you can do:</p>
+<pre><code class="language-bash">docker run -p 1881:1881 --platform linux/amd64 ghcr.io/project-cowboy/cowboy-prover:latest --node-url wss://goals-unable-seller-myspace.trycloudflare.com
 </code></pre>
+<p>If on amd64, omit the <code>platform</code> argument.</p>
 <p>This component must be running in the background to generate and submit proofs.</p>
 <h3 id="3-request-an-x-account-proof-via-the-extension"><a class="header" href="#3-request-an-x-account-proof-via-the-extension">3. Request an X account proof via the extension</a></h3>
 <ol>
@@ -212,7 +213,7 @@ This generates zk-STARK proofs using RISC Zero.</p>
 <p>Once generated, a new window should open, which contains information about the proof. Click the "onchain" tab to progress to a wallet interface.</p>
 <ol>
 <li>Click the "On-chain" tab</li>
-<li>You must tell the extension how to reach the node. In the <code>Node Url</code> field, enter <code>wss://allergy-discrimination-croatia-hurricane.trycloudflare.com</code></li>
+<li>You must tell the extension how to reach the node. In the <code>Node Url</code> field, enter <code>wss://goals-unable-seller-myspace.trycloudflare.com</code></li>
 <li>Click "Connect"</li>
 <li>Click "Create new account". This creates a test account, and stores it in the wallet.</li>
 <li>Click "Claim" to interact with the onchain faucet account, and claim some funds for your account.</li>

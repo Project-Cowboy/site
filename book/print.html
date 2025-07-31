@@ -280,13 +280,14 @@ This generates zk-STARK proofs using RISC Zero.</p>
 <li>Follow instructions in the <a href="./resources.html">Resources guide</a> to install and enable the extension in Chrome or Brave.</li>
 <li>Click the icon for the extension.</li>
 <li>Click the hamburger icon in the top-right corner &gt; "Options"</li>
-<li>Under Notary API, enter: "https://restricted-manga-workstation-stevens.trycloudflare.com"</li>
+<li>Under Notary API, enter: "https://juvenile-surface-corps-securities.trycloudflare.com"</li>
 </ol>
 <p>This tells your browser how to contact Cowboy's hosted notary server. ⚠️ In general, make sure you're using a trusted notary server.</p>
 <h3 id="2-run-the-local-prover"><a class="header" href="#2-run-the-local-prover">2. Run the Local Prover</a></h3>
-<p>You must run the prover container locally:</p>
-<pre><code class="language-bash">docker run -p 1881:1881 --platform linux/amd64 ghcr.io/project-cowboy/cowboy-prover:latest
+<p>You must run the prover container locally. If running on MacOS(arm64), you can do:</p>
+<pre><code class="language-bash">docker run -p 1881:1881 --platform linux/amd64 ghcr.io/project-cowboy/cowboy-prover:latest --node-url wss://goals-unable-seller-myspace.trycloudflare.com
 </code></pre>
+<p>If on amd64, omit the <code>platform</code> argument.</p>
 <p>This component must be running in the background to generate and submit proofs.</p>
 <h3 id="3-request-an-x-account-proof-via-the-extension"><a class="header" href="#3-request-an-x-account-proof-via-the-extension">3. Request an X account proof via the extension</a></h3>
 <ol>
@@ -300,7 +301,7 @@ This generates zk-STARK proofs using RISC Zero.</p>
 <p>Once generated, a new window should open, which contains information about the proof. Click the "onchain" tab to progress to a wallet interface.</p>
 <ol>
 <li>Click the "On-chain" tab</li>
-<li>You must tell the extension how to reach the node. In the <code>Node Url</code> field, enter <code>wss://allergy-discrimination-croatia-hurricane.trycloudflare.com</code></li>
+<li>You must tell the extension how to reach the node. In the <code>Node Url</code> field, enter <code>wss://goals-unable-seller-myspace.trycloudflare.com</code></li>
 <li>Click "Connect"</li>
 <li>Click "Create new account". This creates a test account, and stores it in the wallet.</li>
 <li>Click "Claim" to interact with the onchain faucet account, and claim some funds for your account.</li>
@@ -410,15 +411,15 @@ Each integration expects a TLSNotary proof aligned to a specific URL — for exa
 <li>Unzip</li>
 <li>If on Chrome, go to chrome://extensions/. If on Brave, go to brave://extensions/</li>
 <li>"Load unpacked"</li>
-<li>Select the unzipped folder.</li>
+<li>Select the unzipped folder. If it doesn't allow you to upload, you may need to select a build sub-folder.</li>
 </ol>
 <h2 id="cowboy-prover"><a class="header" href="#cowboy-prover">Cowboy Prover</a></h2>
 <p>To run the local prover which enables proving custom logic developed on Cowboy, please do:</p>
-<pre><code class="language-shell">docker  run -p 1881:1881  ghcr.io/project-cowboy/cowboy-prover:latest ./target/release/k256-example --node-url  "wss://allergy-discrimination-croatia-hurricane.trycloudflare.com"
+<pre><code class="language-shell">docker  run -p 1881:1881  ghcr.io/project-cowboy/cowboy-prover:latest ./target/release/k256-example --node-url  "wss://goals-unable-seller-myspace.trycloudflare.com"
 </code></pre>
 <p>Leave this running whenever you are using the extension or doing local proving.</p>
 <h2 id="access-the-live-devnode"><a class="header" href="#access-the-live-devnode">Access the live devnode</a></h2>
-<p>To access the live devnode, visit it via the polkadotjs explorer link <a href="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fallergy-discrimination-croatia-hurricane.trycloudflare.com">here</a></p>
+<p>To access the live devnode, visit it via the polkadotjs explorer link <a href="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fgoals-unable-seller-myspace.trycloudflare.com">here</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="faqs"><a class="header" href="#faqs">FAQs</a></h1>
 <p>Q: What are 'integrations' in Cowboy?
 A: Custom integrations consist of Rust programs written by developers which receive a "core" proof that authenticates the web data, and then enacts its own custom logic against that web data. This execution is proven as a zk-STARK. This program is uploaded onchain. Verifications of this proof can output public outputs of the proof that the developer wrote.</p>
